@@ -2,6 +2,7 @@ package io.droidmarvin.mapsandplaces;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.places.Place;
@@ -16,6 +17,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
+    private static final String TAG ="placeAutocomplete" ;
     private GoogleMap mMap;
 
     private PlaceAutocompleteFragment placeAutocompleteFragment;
@@ -35,7 +37,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         placeAutocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
             @Override
             public void onPlaceSelected(Place place) {
-
+                Log.i(TAG, "Place: " + place.getName());
             }
 
             @Override
